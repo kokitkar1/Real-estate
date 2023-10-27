@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
 
@@ -16,6 +17,7 @@ mongoose.connect("mongodb+srv://skokitkar500:OK2-CsKvsMI@real-estate.3g5npmp.mon
 
 const app = express()
 app.use(express.json());
+app.use(cookieParser())
 const port = 3000
  
 app.get('/', (req, res) => res.send('Hello World!'))
