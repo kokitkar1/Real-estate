@@ -1,14 +1,24 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 const Contact = ({listing}) => {
   const [landlord, setLandLord] = useState(null)
   const [message, setMessage] = useState('')
 
+  Contact.propTypes = {
+    listing: PropTypes.shape({
+      userRef: PropTypes.string,
+      name: PropTypes.string,
+    }),
+  }
+
 
   const onChange = (e) => {
     setMessage(e.target.value);
   };
+
+  
 
 
   useEffect(() => {

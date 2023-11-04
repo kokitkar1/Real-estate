@@ -7,8 +7,9 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle'
 import {FaBath, FaBed, FaChair,FaMapMarkerAlt, FaParking, FaShare,} from 'react-icons/fa';
 import Contact from '../components/Contact';
+import PropTypes from 'prop-types';
 
-// 7.54.55
+
 
 const Listing = () => {
 
@@ -20,6 +21,12 @@ const Listing = () => {
     const { currentUser } = useSelector((state) => state.user);
     const params = useParams();
     SwiperCore.use([Navigation]);
+
+    Listing.propTypes = {
+        listing: PropTypes.shape({
+          name: PropTypes.string,
+        }),
+      };
 
     useEffect(() => {
         const fetchListing = async () => {
