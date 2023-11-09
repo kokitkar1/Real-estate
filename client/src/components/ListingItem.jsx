@@ -1,7 +1,25 @@
 import {Link} from 'react-router-dom'
 import { MdLocationOn } from 'react-icons/md'
+import PropTypes from 'prop-types';
 
 const ListingItem = ({listing}) => {
+
+  ListingItem.propTypes = {
+    listing: PropTypes.shape({
+      _id: PropTypes.string,
+      imageUrls: PropTypes.string,
+      name: PropTypes.string,
+      address: PropTypes.string,
+      description: PropTypes.string,
+      bedrooms: PropTypes.string,
+      bathrooms: PropTypes.string,
+      offer: PropTypes.string,
+      discountPrice: PropTypes.string,
+      regularPrice: PropTypes.string,
+      type: PropTypes.string,
+    }),
+  };
+
   return (
     <div className=' bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]'>
         <Link to={`/listing/${listing._id}`}>
@@ -29,5 +47,3 @@ const ListingItem = ({listing}) => {
 }
 
 export default ListingItem
-
-//10.00.46
