@@ -11,6 +11,18 @@ body{
 .custom-swiper {
     /* Your existing styles for small screens */
   }
+
+   body, html {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0.1em; /* WebKit-based browsers (Chrome, Safari) */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: transparent; /* WebKit-based browsers (Chrome, Safari) */
+  }
   
   /* Adjust Swiper height for large screens */
   @media (min-width: 1024px) {

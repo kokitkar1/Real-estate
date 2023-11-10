@@ -107,9 +107,11 @@ const Listing = () => {
                     {listing.name} - ₹{' '}
                     {listing.offer? listing.discountPrice.toLocaleString('INR'): listing.regularPrice.toLocaleString('INR')}{listing.type === 'rent' && '/month'}
                 </p>
-
-                <p className='flex items-center mt-6 gap-2 text-slate-600  text-sm'>
-                    <FaMapMarkerAlt className='text-green-700' />
+                
+                <p className='flex items-center mt-2 gap-2 text-slate-600  text-sm'>
+                    <p>
+                        <FaMapMarkerAlt className='text-green-700' />
+                    </p>
                     {listing.address}
                 </p>
 
@@ -147,6 +149,13 @@ const Listing = () => {
                         {listing.furnished ? 'Furnished' : ''}
                     </li>
                 </ul>
+
+                <div className='flex flex-wrap gap-2 justify-center'>
+                {listing.imageUrls.map((url) => (
+                    <div className='bg-center bg-no-repeat bg-cover rounded-xl h-64 w-64 overflow-hidden' style={{ backgroundImage: `url(${url})` }} key={url}/>
+                    ))}
+                </div>
+
 
                 {currentUser && listing.userRef !== currentUser._id && !contact && (
                     <button onClick={() => setContact(true)} className='bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 p-3' >Contact landlord</button>
