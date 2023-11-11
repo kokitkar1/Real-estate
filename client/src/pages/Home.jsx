@@ -116,10 +116,10 @@ const Home = () => {
         {
           rentListings && rentListings.length > 0 && (
             <div className="">
-              <div className="my-3 bg-slate-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
-                <h2 className='text-2xl font-semibold text-slate-700'>Recent Places for Rent</h2>
-                <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>
-                  show more ⮞
+              <div className="my-3 bg-teal-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
+                <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Rent</h2>
+                <Link className='text-sm text-blue-900 hover:underline' to={'/search?type=rent'}>
+                  show more ➤
                 </Link>
               </div>
               <div className=" flex flex-wrap gap-4">
@@ -138,10 +138,10 @@ const Home = () => {
         {
           saleListings && saleListings.length > 0 && (
             <div className="">
-              <div className="my-3 bg-slate-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
-                <h2 className='text-2xl font-semibold text-slate-700'>Recent Places for Sale</h2>
-                <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>
-                  show more ⮞
+              <div className="my-3 bg-blue-300 rounded-lg p-3 flex flex-wrap items-center justify-between">
+                <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Sale</h2>
+                <Link className='text-sm text-blue-900 hover:underline' to={'/search?type=sale'}>
+                  show more ➤
                 </Link>
               </div>
               <div className=" flex flex-wrap gap-4">
