@@ -2,11 +2,19 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+// import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState('');
+  // const [menuOpen, setMenuOpen] = useState(false); // Initialize a state for the menu
   const navigate = useNavigate();
+
+
+
+  // const toggleMenu = () => {
+  //     setMenuOpen(!menuOpen);
+  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +80,74 @@ const Header = () => {
           </Link>
         </ul>
       </div>
+
+      {/* <div className='max-w-6xl mx-auto p-3'>
+                <div className='flex justify-between items-center'>
+                    <Link to='/'>
+                    </Link>
+                    {menuOpen ? ( 
+                        <div className='block sm:hidden'>
+                            <button onClick={toggleMenu} className='text-slate-700 hover:underline'>
+                                <FaTimes />
+                            </button>
+                            <ul className='flex flex-col gap-y-4'>
+                                <Link to='/'>
+                                    <li className='text-slate-700 hover:underline'>Home</li>
+                                </Link>
+                                <Link to='/about-us'>
+                                    <li className='text-slate-700 hover:underline'>About us</li>
+                                </Link>
+                                <Link to='/subscriptions'>
+                                    <li className='text-slate-700 hover:underline'>Subscriptions</li>
+                                </Link>
+                                <Link to='/privacy-policy'>
+                                    <li className='text-slate-700 hover:underline'>Privacy Policy</li>
+                                </Link>
+                                <Link to='/terms-conditions'>
+                                    <li className='text-slate-700 hover:underline'>Terms & Conditions</li>
+                                </Link>
+                                <Link to='/profile'>
+                                    {currentUser ? (
+                                        <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile' />
+                                    ) : (
+                                        <li className='text-slate-700 hover:underline'>Sign in</li>
+                                    )}
+                                </Link>
+                            </ul>
+                        </div>
+                    ) : (
+                        <div className='sm:hidden'>
+                            <button onClick={toggleMenu} className='text-slate-700 hover:underline'>
+                                <FaBars />
+                            </button>
+                        </div>
+                    )}
+                    <div className='hidden sm:flex gap-x-4'>
+                        <Link to='/'>
+                            <li className='text-slate-700 hover:underline list-none'>Home</li>
+                        </Link>
+                        <Link to='/about-us'>
+                            <li className='text-slate-700 hover:underline list-none'>About us</li>
+                        </Link>
+                        <Link to='/subscriptions'>
+                            <li className='text-slate-700 hover:underline list-none'>Subscriptions</li>
+                        </Link>
+                        <Link to='/privacy-policy'>
+                            <li className='text-slate-700 hover:underline list-none'>Privacy Policy</li>
+                        </Link>
+                        <Link to='/terms-conditions'>
+                            <li className='text-slate-700 hover:underline list-none'>Terms & Conditions</li>
+                        </Link>
+                        <Link to='/profile'>
+                            {currentUser ? (
+                                <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile' />
+                            ) : (
+                                <li className='text-slate-700 hover:underline list-none'>Sign in</li>
+                            )}
+                        </Link>
+                    </div>
+                </div>
+            </div> */}
     </header>
   );
 };

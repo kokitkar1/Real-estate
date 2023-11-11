@@ -94,10 +94,10 @@ const Home = () => {
         {
           offerListings && offerListings.length > 0 && (
             <div className="">
-              <div className="my-3">
-                <h2 className='text-2xl font-semibold text-slate-600'>Recent Offers</h2>
+              <div className="my-3 bg-slate-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
+                <h2 className='text-2xl font-semibold text-slate-700'>Recent Offers</h2>
                 <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>
-                  show more offers
+                  show more ➤
                 </Link>
               </div>
               <div className=" flex flex-wrap gap-4">
@@ -111,15 +111,15 @@ const Home = () => {
           )
         }
 
-        <hr className=' bg-black h-0.5'/>
+        {/* <hr className=' bg-black h-0.5'/> */}
 
         {
           rentListings && rentListings.length > 0 && (
             <div className="">
-              <div className="my-3">
-                <h2 className='text-2xl font-semibold text-slate-600'>Recent Places for Rent</h2>
+              <div className="my-3 bg-slate-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
+                <h2 className='text-2xl font-semibold text-slate-700'>Recent Places for Rent</h2>
                 <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>
-                  show more places for rent
+                  show more ⮞
                 </Link>
               </div>
               <div className=" flex flex-wrap gap-4">
@@ -133,15 +133,15 @@ const Home = () => {
           )
         }
 
-        <hr className=' bg-black h-0.5' />
+        {/* <hr className=' bg-black h-0.5' /> */}
 
         {
           saleListings && saleListings.length > 0 && (
             <div className="">
-              <div className="my-3">
-                <h2 className='text-2xl font-semibold text-slate-600'>Recent Places for Sale</h2>
+              <div className="my-3 bg-slate-400 rounded-lg p-3 flex flex-wrap items-center justify-between">
+                <h2 className='text-2xl font-semibold text-slate-700'>Recent Places for Sale</h2>
                 <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>
-                  show more places for sale
+                  show more ⮞
                 </Link>
               </div>
               <div className=" flex flex-wrap gap-4">
