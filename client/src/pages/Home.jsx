@@ -67,14 +67,14 @@ const Home = () => {
 
 
       {/* Swiper of the website */}
-      <Swiper navigation>
+      {/* <Swiper navigation>
       {offerListings && offerListings.length > 0 && offerListings.map((listing) => (
-        <SwiperSlide key={listing._id}>
+        <SwiperSlide key={listing._id}> */}
           {/* <div style={{background: `url(${listing.imageUrls[0]}) no-repeat`, backgroundSize:'cover'}} className=' h-[500px]' key={listing._id}></div> */}
-          <div style={{ background: `url(${listing.imageUrls[0]}) no-repeat`, backgroundSize: 'cover' }} className=' h-4 sm:h-500 mx-3 rounded-full'></div>
+          {/* <div style={{ background: `url(${listing.imageUrls[0]}) no-repeat`, backgroundSize: 'cover' }} className=' h-4 sm:h-500 mx-3 rounded-full'></div>
         </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> */}
       
       {/* <div className='flex flex-wrap gap-6 items-center justify-center mx-auto'>
         <img src={offerListings.map((list) => list.imageUrls[0])} alt="listing image" className="w-50 h-40 object-contain rounded-lg" />
