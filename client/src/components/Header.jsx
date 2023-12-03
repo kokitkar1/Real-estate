@@ -16,6 +16,10 @@ const Header = () => {
       setMenuOpen(!menuOpen);
   }
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParams = new URLSearchParams(window.location.search);
@@ -111,26 +115,29 @@ const Header = () => {
                             </button>
                             <ul className='flex flex-col gap-y-4'>
                                 <Link to='/'>
-                                    <li className='text-slate-700 hover:underline'>Home</li>
+                                    <li className='text-slate-700 hover:underline'  onClick={closeMenu}  >Home</li>
                                 </Link>
                                 <Link to='/about'>
-                                    <li className='text-slate-700 hover:underline'>About us</li>
+                                    <li className='text-slate-700 hover:underline' onClick={closeMenu}>About us</li>
                                 </Link>
-                                <Link to='/subscriptions'>
-                                    <li className='text-slate-700 hover:underline'>Subscriptions</li>
+                                {/* <Link to='/subscriptions'>
+                                    <li className='text-slate-700 hover:underline'  onClick={closeMenu} >Subscriptions</li>
                                 </Link>
                                 <Link to='/privacy-policy'>
-                                    <li className='text-slate-700 hover:underline'>Privacy Policy</li>
+                                    <li className='text-slate-700 hover:underline' onClick={closeMenu}  >Privacy Policy</li>
                                 </Link>
                                 <Link to='/terms-conditions'>
-                                    <li className='text-slate-700 hover:underline'>Terms & Conditions</li>
-                                </Link>
+                                    <li className='text-slate-700 hover:underline'  onClick={closeMenu} >Terms & Conditions</li>
+                                </Link> */}
                                 <Link to='/profile'>
                                     {currentUser ? (
-                                        <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile' />
+                                        <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile'  onClick={closeMenu}  />
                                     ) : (
-                                        <li className='text-slate-700 hover:underline'>Sign in</li>
+                                        <li className='text-slate-700 hover:underline'  onClick={closeMenu} >Sign in</li>
                                     )}
+                                </Link>
+                                <Link to={"/create-listing"} className=' bg-slate-400 rounded-lg px-0.5 w-32 text-center hover:opacity-95'  onClick={closeMenu} >
+                                    Create Listing
                                 </Link>
                             </ul>
                         </div>
@@ -148,7 +155,7 @@ const Header = () => {
                         <Link to='/about'>
                             <li className='text-slate-700 hover:underline list-none'>About us</li>
                         </Link>
-                        <Link to='/subscriptions'>
+                        {/* <Link to='/subscriptions'>
                             <li className='text-slate-700 hover:underline list-none'>Subscriptions</li>
                         </Link>
                         <Link to='/privacy-policy'>
@@ -156,13 +163,16 @@ const Header = () => {
                         </Link>
                         <Link to='/terms-conditions'>
                             <li className='text-slate-700 hover:underline list-none'>Terms & Conditions</li>
-                        </Link>
+                        </Link> */}
                         <Link to='/profile'>
                             {currentUser ? (
                                 <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile' />
                             ) : (
                                 <li className='text-slate-700 hover:underline list-none'>Sign in</li>
                             )}
+                        </Link>
+                        <Link to={"/create-listing"} className=' bg-slate-400 rounded-lg p-0.5 w-32  text-center hover:opacity-95' >
+                                    Create Listing
                         </Link>
                     </div>
                 </div>

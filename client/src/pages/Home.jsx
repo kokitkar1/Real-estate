@@ -5,6 +5,9 @@ import SwiperCore from 'swiper';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/bundle'
 import ListingItem from '../components/ListingItem.jsx';
+import ListingRowItem from '../components/ListingRowItem.jsx';
+import { MdLocationOn } from 'react-icons/md'
+
 
 const Home = () => {
   const [offerListings, setOfferListings] = useState([])
@@ -135,25 +138,43 @@ const Home = () => {
 
         {/* <hr className=' bg-black h-0.5' /> */}
 
-        {
-          saleListings && saleListings.length > 0 && (
-            <div className="">
-              <div className="my-3 bg-blue-300 rounded-lg p-3 flex flex-wrap items-center justify-between">
-                <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Sale</h2>
-                <Link className='text-sm text-blue-900 hover:underline' to={'/search?type=sale'}>
-                  show more ➤
-                </Link>
-              </div>
-              <div className=" flex flex-wrap gap-4">
-                {
-                  saleListings.map((listing) => (
-                    <ListingItem listing={listing} key={listing._id} />
-                  ))
-                }
-              </div>
+        {saleListings && saleListings.length > 0 && (
+          <div className="">
+            <div className="my-3 bg-blue-300 rounded-lg p-3">
+              <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Sale</h2>
             </div>
-          )
+            <div className="flex flex-col gap-4">
+              {saleListings.map((listing) => (
+                <div key={listing._id} className='border border-cyan-400 rounded-lg flex p-3 gap-4'>
+                  <Link to={`/listing/${listing._id}`}>
+                    <img src={listing.imageUrls[0]} alt="Listing Cover" className='h-32 w-32 object-cover rounded-lg  sm:h-44 sm:w-44' />
+                  </Link>
+                  <div className='flex flex-col gap-2 w-full'>
+                  <Link to={`/listing/${listing._id}`}>
+                    <p className='truncate text-lg font-semibold text-slate-700'>{listing.name}</p>
+                    </Link>
+                    <div className="flex items-center gap-2">
+                      <MdLocationOn className=' h-4 w-4 text-green-700'/>
+                      <p className='text-sm text-gray-600 w-full line-clamp-1'>{listing.address}</p>
+                    </div>
+                    <Link to={`/listing/${listing._id}`}>
+                    <p className='hidden md:block text-sm text-gray-600 line-clamp-3'>{listing.description}</p>
+                    </Link>
+                    <p className='text-slate-500 mt-2 font-semibold flex items-center'>₹{listing.offer ? listing.discountPrice.toLocaleString('INR') : listing.regularPrice.toLocaleString('INR')} {listing.type === 'rent' && '/month'}</p>
+                    <div className="text-slate-700 flex gap-4">
+                      <div className="font-bold text-xs">{listing.bedrooms > 1 ? `${listing.bedrooms} beds` : `${listing.bedrooms} bed`}</div>
+                        <div className="font-bold text-xs">{listing.bathrooms > 1 ? `${listing.bathrooms} baths` : `${listing.bathrooms} bath`}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+         )
         }
+        <Link className='text-sm text-black-900 font-semibold hover:underline text-center bg-amber-400 rounded-full ' to={'/search?type=sale'}>
+                  show more
+        </Link>
         <hr className=' bg-black h-0.5' />
       </div>
 
@@ -162,3 +183,84 @@ const Home = () => {
 }
 
 export default Home
+
+
+
+
+
+// old code
+        {/* {saleListings && saleListings.length > 0 && (
+          <div className="">
+            <div className="my-3 bg-blue-300 rounded-lg p-3 flex flex-wrap items-center justify-between">
+              <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Sale</h2>
+              <Link className='text-sm text-blue-900 hover:underline' to={'/search?type=sale'}>
+                show more ➤
+              </Link>
+            </div>
+            <div className="flex flex-col gap-4">
+              {saleListings.map((listing) => (
+                <div key={listing._id} className='border rounded-lg flex p-3 justify-between items-center gap-4'>
+                  <Link to={`/listing/${listing._id}`}>
+                    <img src={listing.imageUrls[0]} alt="Listing Cover" className='h-40 w-40 object-cover rounded-lg' />
+                  </Link>
+                  <div className='p-3 flex flex-col gap-2 w-full'>
+                  <Link to={`/listing/${listing._id}`}>
+                <p className=' truncate text-lg font-semibold text-slate-700' >{listing.name}</p>
+                </Link>
+                <div className="flex items-center gap-2">
+                    <p className=' text-sm text-gray-600 truncate w-full'>{listing.address}</p>
+                </div>
+                <p className=' text-sm text-gray-600 line-clamp-2' >{listing.description} </p>
+                <p className=' text-slate-500 mt-2 font-semibold flex items-center' >₹{listing.offer ? listing.discountPrice.toLocaleString('INR') : listing.regularPrice.toLocaleString('INR')} {listing.type === 'rent' && '/month'} </p>
+                <div className=" text-slate-700 flex gap-4">
+                  <div className=" font-bold text-xs">
+                    {listing.bedrooms > 1 ? `${listing.bedrooms} beds` : `${listing.bedrooms} bed` }
+                  </div>
+                  <div className=" font-bold text-xs">
+                    {listing.bathrooms > 1 ? `${listing.bathrooms} baths` : `${listing.bathrooms} bath` }
+                  </div>
+                </div>
+                </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )} */}
+
+{/* {saleListings && saleListings.length > 0 && (
+  <div className="">
+    <div className="my-3 bg-blue-300 rounded-lg p-3 flex flex-wrap items-center justify-between">
+      <h2 className='text-2xl font-semibold text-slate-800'>Recent Places for Sale</h2>
+      <Link className='text-sm text-blue-900 hover:underline' to={'/search?type=sale'}>
+        show more ➤
+      </Link>
+    </div>
+    <div className="flex flex-col gap-4">
+      {saleListings.map((listing) => (
+        <div key={listing._id} className='border rounded-lg flex flex-wrap sm:flex-nowrap p-3 gap-4'>
+          <Link to={`/listing/${listing._id}`} className="w-full sm:w-1/4">
+            <img src={listing.imageUrls[0]} alt="Listing Cover" className='h-40 w-full object-cover rounded-lg' />
+          </Link>
+          <div className='p-3 flex flex-col gap-2 w-full sm:w-3/4'>
+            <p className='truncate text-lg font-semibold text-slate-700'>{listing.name}</p>
+            <div className="flex items-center gap-2">
+              <p className='text-sm text-gray-600 truncate w-full'>{listing.address}</p>
+            </div>
+            <p className='text-sm text-gray-600 line-clamp-2'>{listing.description}</p>
+            <p className='text-slate-500 mt-2 font-semibold flex items-center'>
+              ₹{listing.offer ? listing.discountPrice.toLocaleString('INR') : listing.regularPrice.toLocaleString('INR')} {listing.type === 'rent' && '/month'}
+            </p>
+            <div className="text-slate-700 flex gap-4">
+              <div className="font-bold text-xs">
+                {listing.bedrooms > 1 ? `${listing.bedrooms} beds` : `${listing.bedrooms} bed`}
+              </div>
+              <div className="font-bold text-xs">
+                {listing.bathrooms > 1 ? `${listing.bathrooms} baths` : `${listing.bathrooms} bath`}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+)} */}
